@@ -1,4 +1,4 @@
-package BankLoginTest;
+package test;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,6 @@ import page.LoginPage;
 
 import static data.SQLHelper.cleanDatabase;
 import static com.codeborne.selenide.Selenide.open;
-import static data.SQLHelper.getVerificationCode;
 
 public class BankLoginTest {
 
