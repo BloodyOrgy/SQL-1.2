@@ -1,4 +1,4 @@
-package BankLoginTest.java;
+package BankLoginTest;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
