@@ -8,6 +8,7 @@ import page.LoginPage;
 
 import static data.SQLHelper.cleanDatabase;
 import static com.codeborne.selenide.Selenide.open;
+import static data.SQLHelper.getVerificationCode;
 
 public class BankLoginTest {
 
@@ -31,7 +32,7 @@ public class BankLoginTest {
         var loginPage = open("http://localhost:9999", LoginPage.class);
         var authInfo = DataHelper.generateRandomUser();
         loginPage.validLogin(authInfo);
-        loginPage.verifyErrorNotificationVisiblity();
+        loginPage.verifyErrorNotificationVisiblity("Ошибка! \nНеверно указан логин или пароль");
     }
 
     @Test
@@ -39,10 +40,9 @@ public class BankLoginTest {
         var loginPage = open("http://localhost:9999", LoginPage.class);
         var authInfo = DataHelper.getAuthInfoWithTestData();
         var verificationPage = loginPage.validLogin(authInfo);
-        verificationPage.verifyVerificationPageVisiblity();
         var verificationCode = DataHelper.generateRandomVerificationCode();
         verificationPage.verify(verificationCode.getCode());
-        verificationPage.verifyErrorNotificationVisiblity();
+        verificationPage.verifyErrorNotificationVisiblity("Ошибка! \nНеверно указан код! Попробуйте ещё раз.");
 
     }
 }

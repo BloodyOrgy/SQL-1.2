@@ -14,7 +14,7 @@ public class VerificationPage {
         codeField.shouldBe(visible);
     }
 
-    public void verifyErrorNotificationVisiblity() {
+    public void verifyErrorNotificationVisiblity(String s) {
         errorNotification.shouldBe(visible);
     }
 
